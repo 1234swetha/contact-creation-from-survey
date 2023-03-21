@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="inherit_survey_view_form" model="ir.ui.view">
+        <field name="name">survey.survey.form</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[@name='options']" position="after">
+                <page string="Contact Relation" name="contact">
+                    <field name="relation_ids">
+                        <tree string="contact" editable="bottom">
+                            <field name="survey_id" invisible="1"/>
+                            <field name="question_id" options="{'no_quick_create': True, 'no_create_edit': True}"/>
+                            <field name="field_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
